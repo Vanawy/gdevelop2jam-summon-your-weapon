@@ -14,7 +14,7 @@
     "pixelsRounding": true,
     "projectUuid": "7fd43d04-753a-494f-8e24-e5d2ee206b9d",
     "scaleMode": "nearest",
-    "sizeOnStartupMode": "adaptWidth",
+    "sizeOnStartupMode": "",
     "templateSlug": "",
     "useExternalSourceFiles": false,
     "version": "1.0.0",
@@ -23,7 +23,7 @@
     "author": "vanawy.dev",
     "windowWidth": 1280,
     "windowHeight": 720,
-    "latestCompilationDirectory": "",
+    "latestCompilationDirectory": "C:\\Users\\HAFF\\Documents\\GDevelop projects\\SummonYourWeapon\\build",
     "maxFPS": 60,
     "minFPS": 20,
     "verticalSync": false,
@@ -476,7 +476,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 2.5099999999999656,
+        "zoomFactor": 1.6299999999999644,
         "windowMask": false
       },
       "objectsGroups": [
@@ -768,7 +768,7 @@
           "name": "Character",
           "persistentUuid": "32bac14f-3982-4655-ada0-f0012e301e0e",
           "width": 0,
-          "x": 113,
+          "x": 112,
           "y": 128,
           "zOrder": 14,
           "numberProperties": [],
@@ -896,7 +896,7 @@
           "name": "Dummy",
           "persistentUuid": "9bf95ba0-0d1a-49f7-ba88-23b0ab65fb47",
           "width": 0,
-          "x": 289,
+          "x": 288,
           "y": 128,
           "zOrder": 17,
           "numberProperties": [
@@ -911,28 +911,12 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 16,
-          "layer": "UI",
-          "locked": false,
-          "name": "BarBorder",
-          "persistentUuid": "f6326c92-735f-47a1-949a-5dc195ab244c",
-          "width": 112,
-          "x": 432,
-          "y": 256,
-          "zOrder": 22,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
           "height": 12,
           "layer": "UI",
           "locked": false,
           "name": "HealthBar",
           "persistentUuid": "d1da0c0f-e7f9-49fe-a3d2-e63459cb476c",
-          "width": 109,
+          "width": 76,
           "x": 434,
           "y": 258,
           "zOrder": 18,
@@ -1087,6 +1071,38 @@
           "x": 288,
           "y": 160,
           "zOrder": 32,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 224,
+          "layer": "PauseUI",
+          "locked": false,
+          "name": "CharacterStats",
+          "persistentUuid": "b6c2a247-40fe-43de-a3a3-5b3ea44e8eff",
+          "width": 401,
+          "x": 463,
+          "y": 32,
+          "zOrder": 33,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI",
+          "locked": false,
+          "name": "HPBarBorder",
+          "persistentUuid": "b2b7ac7e-40e3-49d7-add8-165fc67571f9",
+          "width": 0,
+          "x": 432,
+          "y": 256,
+          "zOrder": 34,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -1302,8 +1318,8 @@
               "MaxHealth": 10,
               "IsJustDamaged": false,
               "CooldownActive": false,
-              "Armor": 3,
-              "MaxArmor": 5
+              "Armor": 0,
+              "MaxArmor": 0
             },
             {
               "name": "RemapForTopdown",
@@ -1924,23 +1940,6 @@
         },
         {
           "assetStoreId": "",
-          "bottomMargin": 4,
-          "height": 16,
-          "leftMargin": 4,
-          "name": "BarBorder",
-          "rightMargin": 4,
-          "tags": "",
-          "texture": "assets\\bar.png",
-          "tiled": true,
-          "topMargin": 4,
-          "type": "PanelSpriteObject::PanelSprite",
-          "width": 16,
-          "variables": [],
-          "effects": [],
-          "behaviors": []
-        },
-        {
-          "assetStoreId": "",
           "bottomMargin": 24,
           "height": 48,
           "leftMargin": 13,
@@ -2337,8 +2336,87 @@
                   "timeBetweenFrames": 0.07999999821186066,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets\\DungeonTiles\\tile_0041.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 12
+                          },
+                          {
+                            "x": 4,
+                            "y": 12
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "CharacterStats",
+          "tags": "",
+          "type": "BBText::BBText",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "text": "[spacing=12]Paused[/spacing]\n\n[b]bold[/b] [i]italic[/i] [size=15]smaller[/size] [font=times]times[/font] font\n[spacing=12]spaced out[/spacing]\n[outline=yellow]outlined[/outline] [shadow=red]DropShadow[/shadow] ",
+            "opacity": 255,
+            "fontSize": 32,
+            "visible": true,
+            "color": "255;255;255",
+            "fontFamily": "assets\\Kenney Mini.ttf",
+            "align": "center",
+            "wordWrap": false
+          }
+        },
+        {
+          "assetStoreId": "",
+          "name": "HPBarBorder",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\bar.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2366,7 +2444,6 @@
           "colorG": 16,
           "colorR": 189,
           "creationTime": 0,
-          "folded": true,
           "name": "Camera",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -2403,17 +2480,6 @@
                     "",
                     "GlobalVariable(CAMERA_ZOOM)",
                     "\"UI\"",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ZoomCamera"
-                  },
-                  "parameters": [
-                    "",
-                    "GlobalVariable(CAMERA_ZOOM)",
-                    "\"PauseUI\"",
                     ""
                   ]
                 }
@@ -2514,7 +2580,6 @@
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -2557,6 +2622,24 @@
                       "parameters": [
                         "",
                         "\"PauseUI\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "MettreXY"
+                      },
+                      "parameters": [
+                        "CharacterStats",
+                        "=",
+                        "SceneWindowWidth()/2 - CharacterStats.Width()/2",
+                        "=",
+                        "SceneWindowHeight()/2 - CharacterStats.Height()/2"
                       ]
                     }
                   ]
@@ -2673,6 +2756,7 @@
                   "colorG": 176,
                   "colorR": 74,
                   "creationTime": 0,
+                  "folded": true,
                   "name": "Collision Detection",
                   "source": "",
                   "type": "BuiltinCommonInstructions::Group",
@@ -3199,7 +3283,6 @@
                   "colorG": 74,
                   "colorR": 228,
                   "creationTime": 0,
-                  "folded": true,
                   "name": "Player",
                   "source": "",
                   "type": "BuiltinCommonInstructions::Group",
@@ -24894,6 +24977,19 @@
                   ]
                 },
                 {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Ranged weapons",
+                  "comment2": ""
+                },
+                {
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -24911,13 +25007,24 @@
                   "actions": [
                     {
                       "type": {
+                        "value": "WeaponInfo::WeaponSpawnerInfo::SetPropertyWeaponType"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "=",
+                        "\"Ranged\""
+                      ]
+                    },
+                    {
+                      "type": {
                         "value": "WeaponInfo::WeaponSpawnerInfo::SetPropertyCooldown"
                       },
                       "parameters": [
                         "Object",
                         "Behavior",
                         "=",
-                        "2"
+                        "1"
                       ]
                     },
                     {
@@ -24940,19 +25047,21 @@
                         "Behavior",
                         "yes"
                       ]
-                    },
-                    {
-                      "type": {
-                        "value": "WeaponInfo::WeaponSpawnerInfo::SetPropertyWeaponType"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "=",
-                        "\"Ranged\""
-                      ]
                     }
                   ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Special weapons",
+                  "comment2": ""
                 },
                 {
                   "type": "BuiltinCommonInstructions::Standard",
@@ -24972,6 +25081,17 @@
                   "actions": [
                     {
                       "type": {
+                        "value": "WeaponInfo::WeaponSpawnerInfo::SetPropertyWeaponType"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "=",
+                        "\"Special\""
+                      ]
+                    },
+                    {
+                      "type": {
                         "value": "WeaponInfo::WeaponSpawnerInfo::SetPropertyCooldown"
                       },
                       "parameters": [
@@ -24989,17 +25109,6 @@
                         "Object",
                         "Behavior",
                         "no"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "WeaponInfo::WeaponSpawnerInfo::SetPropertyWeaponType"
-                      },
-                      "parameters": [
-                        "Object",
-                        "Behavior",
-                        "=",
-                        "\"Special\""
                       ]
                     }
                   ]
@@ -25035,6 +25144,67 @@
                   "optional": false,
                   "supplementaryInformation": "[\"Knife\",\"Shield\",\"Fireball\"]",
                   "type": "stringWithSelector"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "",
+              "fullName": "Set cooldown reduction",
+              "functionType": "Action",
+              "group": "",
+              "name": "SetCooldownReduction",
+              "private": false,
+              "sentence": "Set _PARAM0_ cooldown reduction to _PARAM2_",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "WeaponInfo::WeaponSpawnerInfo::SetPropertyCooldownReduction"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "=",
+                        "GetArgumentAsNumber(\"Value\")"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "codeOnly": false,
+                  "defaultValue": "",
+                  "description": "Object",
+                  "longDescription": "",
+                  "name": "Object",
+                  "optional": false,
+                  "supplementaryInformation": "",
+                  "type": "object"
+                },
+                {
+                  "codeOnly": false,
+                  "defaultValue": "",
+                  "description": "Behavior",
+                  "longDescription": "",
+                  "name": "Behavior",
+                  "optional": false,
+                  "supplementaryInformation": "WeaponInfo::WeaponSpawnerInfo",
+                  "type": "behavior"
+                },
+                {
+                  "codeOnly": false,
+                  "defaultValue": "",
+                  "description": "Cooldown reduction value where 0 is no reduction, 1 - no cooldown, negative value - increased cooldown",
+                  "longDescription": "",
+                  "name": "Value",
+                  "optional": false,
+                  "supplementaryInformation": "",
+                  "type": "expression"
                 }
               ],
               "objectGroups": []
@@ -25539,7 +25709,7 @@
             },
             {
               "description": "",
-              "fullName": "Get cooldown",
+              "fullName": "Get cooldown (result with cooldown reduction included)",
               "functionType": "Expression",
               "group": "",
               "name": "Cooldown",
@@ -25556,6 +25726,32 @@
                       },
                       "parameters": [
                         "Object.Behavior::PropertyCooldown()"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "WeaponInfo::WeaponSpawnerInfo::PropertyCooldownReduction"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "!=",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetReturnNumber"
+                      },
+                      "parameters": [
+                        "Object.Behavior::PropertyCooldown() - Object.Behavior::PropertyCooldown() * Object.Behavior::PropertyCooldownReduction()"
                       ]
                     }
                   ]
@@ -25698,6 +25894,16 @@
               ],
               "hidden": true,
               "name": "WeaponType"
+            },
+            {
+              "value": "0",
+              "type": "Number",
+              "label": "Cooldown reduction value where 0 is no reduction, 1 - no cooldown, negative value - increased cooldown",
+              "description": "",
+              "group": "",
+              "extraInformation": [],
+              "hidden": true,
+              "name": "CooldownReduction"
             }
           ]
         },
