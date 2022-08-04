@@ -574,7 +574,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 1.8299999999999623,
+        "zoomFactor": 1.209999999999962,
         "windowMask": false
       },
       "objectsGroups": [
@@ -1543,6 +1543,45 @@
           "x": -80,
           "y": 192,
           "zOrder": 101,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "Pickup",
+          "persistentUuid": "842a37ed-f358-4c13-806d-50b1f9b63c1d",
+          "width": 0,
+          "x": 176,
+          "y": 96,
+          "zOrder": 29,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": [
+            {
+              "folded": true,
+              "name": "Name",
+              "type": "string",
+              "value": "Shield"
+            }
+          ]
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "UI",
+          "locked": false,
+          "name": "RoomTimeLimit",
+          "persistentUuid": "7c370fef-0d44-4def-82ad-55bfff32e3ff",
+          "width": 0,
+          "x": 432,
+          "y": 238,
+          "zOrder": 102,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -3307,6 +3346,40 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "bold": true,
+          "italic": false,
+          "name": "RoomTimeLimit",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [
+            {
+              "effectType": "Outline",
+              "name": "Effect",
+              "doubleParameters": {
+                "padding": 0,
+                "thickness": 2
+              },
+              "stringParameters": {
+                "color": "0;0;0"
+              },
+              "booleanParameters": {}
+            }
+          ],
+          "behaviors": [],
+          "string": "00:00",
+          "font": "assets\\Kenney Mini.ttf",
+          "characterSize": 16,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          }
         }
       ],
       "events": [
@@ -3315,6 +3388,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "LOADING CONFIG",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -3324,6 +3398,7 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
+              "folded": true,
               "name": "Load room json",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
@@ -3515,6 +3590,7 @@
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -3832,6 +3908,7 @@
                       "comment2": ""
                     },
                     {
+                      "folded": true,
                       "type": "BuiltinCommonInstructions::ForEach",
                       "object": "Pickup",
                       "conditions": [],
@@ -4090,7 +4167,6 @@
                       "comment2": ""
                     },
                     {
-                      "folded": true,
                       "type": "BuiltinCommonInstructions::Standard",
                       "conditions": [
                         {
@@ -4159,7 +4235,6 @@
                           ]
                         },
                         {
-                          "folded": true,
                           "type": "BuiltinCommonInstructions::Standard",
                           "conditions": [],
                           "actions": [
@@ -4177,6 +4252,7 @@
                           ],
                           "events": [
                             {
+                              "folded": true,
                               "type": "BuiltinCommonInstructions::Standard",
                               "conditions": [
                                 {
@@ -5414,6 +5490,7 @@
                   "colorG": 176,
                   "colorR": 74,
                   "creationTime": 0,
+                  "folded": true,
                   "name": "Effects",
                   "source": "",
                   "type": "BuiltinCommonInstructions::Group",
@@ -5717,6 +5794,14 @@
                             "=",
                             "Character.Y()"
                           ]
+                        },
+                        {
+                          "type": {
+                            "value": "Cache"
+                          },
+                          "parameters": [
+                            "EnemySpawner"
+                          ]
                         }
                       ]
                     },
@@ -5885,6 +5970,40 @@
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
+                      "name": "Room timer",
+                      "source": "",
+                      "type": "BuiltinCommonInstructions::Group",
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "ModVarScene"
+                              },
+                              "parameters": [
+                                "RoomTimeLimit",
+                                "=",
+                                "Variable(Rooms[Variable(Room.Floor)].TimeLimit)"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [],
+                          "actions": []
+                        }
+                      ],
+                      "parameters": []
+                    },
+                    {
+                      "colorB": 228,
+                      "colorG": 176,
+                      "colorR": 74,
+                      "creationTime": 0,
+                      "folded": true,
                       "name": "Spawn enemies",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
@@ -5901,6 +6020,16 @@
                                 "EnemyTypesCount",
                                 "=",
                                 "Variable(Rooms[Variable(Room.Floor)].Enemies[0])"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ModVarScene"
+                              },
+                              "parameters": [
+                                "MoveSpawnersInterval",
+                                "=",
+                                "Variable(Rooms[Variable(Room.Floor)].MoveSpawnersInterval)"
                               ]
                             }
                           ]
@@ -5946,19 +6075,68 @@
                               ]
                             },
                             {
+                              "folded": true,
                               "type": "BuiltinCommonInstructions::Standard",
                               "conditions": [
                                 {
                                   "type": {
-                                    "value": "SceneVariableAsBoolean"
+                                    "value": "BuiltinCommonInstructions::Or"
+                                  },
+                                  "parameters": [],
+                                  "subInstructions": [
+                                    {
+                                      "type": {
+                                        "value": "SceneVariableAsBoolean"
+                                      },
+                                      "parameters": [
+                                        "IsSpawnersEnabled",
+                                        "False"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "CompareTimer"
+                                      },
+                                      "parameters": [
+                                        "",
+                                        "\"MoveSpawners\"",
+                                        ">",
+                                        "Variable(MoveSpawnersInterval)"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "ModVarObjetTxt"
+                                  },
+                                  "parameters": [
+                                    "EnemySpawner",
+                                    "EnemyName",
+                                    "=",
+                                    "\"\""
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "SetSceneVariableAsBoolean"
                                   },
                                   "parameters": [
                                     "IsSpawnersEnabled",
                                     "False"
                                   ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "Cache"
+                                  },
+                                  "parameters": [
+                                    "EnemySpawner"
+                                  ]
                                 }
                               ],
-                              "actions": [],
                               "events": [
                                 {
                                   "infiniteLoopWarning": true,
@@ -6040,6 +6218,15 @@
                                                 "+",
                                                 "1"
                                               ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "ResetTimer"
+                                              },
+                                              "parameters": [
+                                                "",
+                                                "\"MoveSpawners\""
+                                              ]
                                             }
                                           ]
                                         }
@@ -6112,6 +6299,7 @@
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
+                      "folded": true,
                       "name": "Room change",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
@@ -6252,6 +6440,14 @@
                                         "EnemyName",
                                         "=",
                                         "\"\""
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "Cache"
+                                      },
+                                      "parameters": [
+                                        "EnemySpawner"
                                       ]
                                     }
                                   ]
@@ -6549,6 +6745,7 @@
           "colorG": 117,
           "colorR": 65,
           "creationTime": 0,
+          "folded": true,
           "name": "DEBUG",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -6693,6 +6890,7 @@
                   ]
                 },
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -6866,10 +7064,21 @@
                                 "+",
                                 "\"Enemy types count: \" + ToString(Variable(EnemyTypesCount)) + NewLine()"
                               ]
+                            },
+                            {
+                              "type": {
+                                "value": "BBText::SetBBText"
+                              },
+                              "parameters": [
+                                "DebugText",
+                                "+",
+                                "\"Move spawners interval: \" + ToString(Variable(MoveSpawnersInterval)) + NewLine()"
+                              ]
                             }
                           ]
                         },
                         {
+                          "disabled": true,
                           "type": "BuiltinCommonInstructions::Standard",
                           "conditions": [],
                           "actions": [
@@ -7052,6 +7261,69 @@
   ],
   "externalEvents": [],
   "eventsFunctionsExtensions": [
+    {
+      "author": "@Bouh",
+      "category": "",
+      "description": "Expressions to transform time in seconds to format like HH:MM:SS. Ideal to display timers on screen.",
+      "extensionNamespace": "",
+      "fullName": "Time formatting",
+      "helpPath": "",
+      "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0ibWRpLWNsb2NrLWRpZ2l0YWwiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMiw2QTIsMiAwIDAsMCAwLDhWMTZBMiwyIDAgMCwwIDIsMThIMjJBMiwyIDAgMCwwIDI0LDE2VjhBMiwyIDAgMCwwIDIyLDZNMiw4SDIyVjE2SDJNMyw5VjEwLjVINi4yNUwzLDE1SDQuNzVMOCwxMC41VjlNOS4yNSw5VjEwLjVIMTAuNzVWOU0xMiw5VjEwLjVIMTMuNVYxNUgxNVY5TTE3LDlBMSwxIDAgMCwwIDE2LDEwVjE0QTEsMSAwIDAsMCAxNywxNUgyMEExLDEgMCAwLDAgMjEsMTRWMTBBMSwxIDAgMCwwIDIwLDlNMTcuNSwxMC41SDE5LjVWMTMuNUgxNy41TTkuMjUsMTMuNVYxNUgxMC43NVYxMy41IiAvPjwvc3ZnPg==",
+      "name": "TimeFormatter",
+      "previewIconUrl": "https://resources.gdevelop-app.com/assets/Icons/clock-digital.svg",
+      "shortDescription": "Expressions to transform time in seconds to format like HH:MM:SS. Ideal to display timers on screen.",
+      "version": "0.0.1",
+      "origin": {
+        "identifier": "TimeFormatter",
+        "name": "gdevelop-extension-store"
+      },
+      "tags": [
+        "time",
+        "timer",
+        "format",
+        "hours",
+        "minutes",
+        "seconds"
+      ],
+      "authorIds": [
+        "2OwwM8ToR9dx9RJ2sAKTcrLmCB92"
+      ],
+      "dependencies": [],
+      "eventsFunctions": [
+        {
+          "description": "Format time in seconds to HH:MM:SS.",
+          "fullName": "Format time in seconds to HH:MM:SS",
+          "functionType": "StringExpression",
+          "group": "",
+          "name": "SecondsToHHMMSS",
+          "private": false,
+          "sentence": "Format time _PARAM1_ to HH:MM:SS in _PARAM2_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": "//custom function in custom fonction ~~Woow~~\r\nvar format_time = function (time_second) {\r\n    date = new Date(null);\r\n    date.setSeconds(time_second);\r\n    if (time_second >= 3600) {\r\n        return date.toISOString().substr(11, 8); // MM:SS\r\n    } else {\r\n        return date.toISOString().substr(14, 5); // HH:MM:SS\r\n    }\r\n}\r\n\r\neventsFunctionContext.returnValue = format_time(eventsFunctionContext.getArgument(\"TimeInSeconds\"));",
+              "parameterObjects": "",
+              "useStrict": false,
+              "eventsSheetExpanded": false
+            }
+          ],
+          "parameters": [
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "Time, in seconds",
+              "longDescription": "",
+              "name": "TimeInSeconds",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "expression"
+            }
+          ],
+          "objectGroups": []
+        }
+      ],
+      "eventsBasedBehaviors": []
+    },
     {
       "author": "Tristan Rhodes (tristan@victrisgames.com)",
       "category": "",

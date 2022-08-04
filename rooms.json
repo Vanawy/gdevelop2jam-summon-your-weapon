@@ -11,11 +11,11 @@
             2,
             {
                 "Name": "Crawler",
-                "Interval": 5
+                "Interval": 3
             },
             {
                 "Name": "Crawler",
-                "Interval": 10
+                "Interval": 3
             }
         ]
     }
