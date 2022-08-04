@@ -574,7 +574,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 2.0699999999999625,
+        "zoomFactor": 1.8299999999999623,
         "windowMask": false
       },
       "objectsGroups": [
@@ -679,6 +679,18 @@
           "name": "i",
           "type": "number",
           "value": 0
+        },
+        {
+          "name": "Room",
+          "type": "structure",
+          "children": [
+            {
+              "folded": true,
+              "name": "Floor",
+              "type": "number",
+              "value": 1
+            }
+          ]
         }
       ],
       "instances": [
@@ -1435,6 +1447,102 @@
           "x": 336,
           "y": 112,
           "zOrder": 9,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "EnemySpawner",
+          "persistentUuid": "007e06d9-6fc3-4f29-a9e6-f08871997f81",
+          "width": 0,
+          "x": -80,
+          "y": 48,
+          "zOrder": 101,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "EnemySpawner",
+          "persistentUuid": "1daccf5a-65e9-41ef-b882-46ba6bc96b44",
+          "width": 0,
+          "x": 304,
+          "y": 48,
+          "zOrder": 101,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "EnemySpawner",
+          "persistentUuid": "ef856eee-081f-4282-8b97-ccca3bad7d76",
+          "width": 0,
+          "x": 304,
+          "y": 192,
+          "zOrder": 101,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "EnemySpawner",
+          "persistentUuid": "ede7f42b-e1ab-4f81-ac8c-7662d4ec46d8",
+          "width": 0,
+          "x": 112,
+          "y": 48,
+          "zOrder": 101,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "EnemySpawner",
+          "persistentUuid": "15f26d72-2182-47b1-b3b7-52af2a601294",
+          "width": 0,
+          "x": 112,
+          "y": 192,
+          "zOrder": 101,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "EnemySpawner",
+          "persistentUuid": "9f95a0ae-00fa-4fa5-a6e8-c2a7e620e479",
+          "width": 0,
+          "x": -80,
+          "y": 192,
+          "zOrder": 101,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -3104,7 +3212,26 @@
           "tags": "",
           "type": "BBText::BBText",
           "variables": [],
-          "effects": [],
+          "effects": [
+            {
+              "effectType": "DropShadow",
+              "name": "Effect",
+              "doubleParameters": {
+                "alpha": 1,
+                "blur": 2,
+                "distance": 1,
+                "padding": 0,
+                "quality": 3,
+                "rotation": 0
+              },
+              "stringParameters": {
+                "color": "58;58;58"
+              },
+              "booleanParameters": {
+                "shadowOnly": false
+              }
+            }
+          ],
           "behaviors": [],
           "content": {
             "text": "[DEBUG TEXT]",
@@ -3128,6 +3255,58 @@
           "variables": [],
           "effects": [],
           "behaviors": []
+        },
+        {
+          "assetStoreId": "",
+          "name": "EnemySpawner",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "ObjectSpawner",
+              "type": "ObjectSpawner::ObjectSpawner",
+              "SpawnPeriod": 1,
+              "OffsetX": 0,
+              "OffsetY": 0,
+              "JustSpawnedAnObject": false,
+              "MaxQuantityReached": false,
+              "MaxQuantity": 0
+            }
+          ],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\spinner.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "events": [
@@ -3164,6 +3343,7 @@
                   "actions": [
                     {
                       "type": {
+                        "await": true,
                         "value": "SendAsyncRequest"
                       },
                       "parameters": [
@@ -3173,6 +3353,15 @@
                         "",
                         "RoomsConfigRaw",
                         "RoomsConfigError"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "JSONToVariableStructure"
+                      },
+                      "parameters": [
+                        "VariableString(RoomsConfigRaw)",
+                        "Rooms"
                       ]
                     }
                   ]
@@ -3456,7 +3645,6 @@
                   "colorG": 176,
                   "colorR": 74,
                   "creationTime": 0,
-                  "folded": true,
                   "name": "Pickups",
                   "source": "",
                   "type": "BuiltinCommonInstructions::Group",
@@ -3773,16 +3961,6 @@
                           "parameters": [
                             "Enemies",
                             "Obstacles",
-                            ""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "SeparateFromObjects"
-                          },
-                          "parameters": [
-                            "Enemies",
-                            "Enemies",
                             ""
                           ]
                         }
@@ -5553,7 +5731,7 @@
                           "parameters": [
                             "Door",
                             "LockedDoor",
-                            "Variable(Room.TargetScores[Variable(Room.Floor)])",
+                            "Variable(Rooms[Variable(Room.Floor)].TargetScore)",
                             ""
                           ]
                         }
@@ -5581,24 +5759,12 @@
                       ]
                     },
                     {
-                      "type": "BuiltinCommonInstructions::Comment",
-                      "color": {
-                        "b": 109,
-                        "g": 230,
-                        "r": 255,
-                        "textB": 0,
-                        "textG": 0,
-                        "textR": 0
-                      },
-                      "comment": "ROOM 0 - Tutorial\n",
-                      "comment2": ""
-                    },
-                    {
                       "colorB": 228,
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
-                      "name": "ROOM 0 - Tutorial",
+                      "folded": true,
+                      "name": "ROOM 1 - Tutorial",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
                       "events": [
@@ -5612,7 +5778,7 @@
                               "parameters": [
                                 "Room.Floor",
                                 "=",
-                                "0"
+                                "1"
                               ]
                             }
                           ],
@@ -5715,77 +5881,45 @@
                       "comment2": ""
                     },
                     {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "LockedDoor::LockedDoor::IsJustUnlocked"
-                          },
-                          "parameters": [
-                            "Door",
-                            "LockedDoor",
-                            ""
-                          ]
-                        }
-                      ],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "DebuggerTools::ConsoleLog"
-                          },
-                          "parameters": [
-                            "\"Unlocked\"",
-                            "\"info\"",
-                            "\"effects\""
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
-                        {
-                          "type": {
-                            "value": "LockedDoor::LockedDoor::IsUnlocked"
-                          },
-                          "parameters": [
-                            "Door",
-                            "LockedDoor",
-                            ""
-                          ]
-                        }
-                      ],
-                      "actions": [],
+                      "colorB": 228,
+                      "colorG": 176,
+                      "colorR": 74,
+                      "creationTime": 0,
+                      "name": "Spawn enemies",
+                      "source": "",
+                      "type": "BuiltinCommonInstructions::Group",
                       "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "ModVarScene"
+                              },
+                              "parameters": [
+                                "EnemyTypesCount",
+                                "=",
+                                "Variable(Rooms[Variable(Room.Floor)].Enemies[0])"
+                              ]
+                            }
+                          ]
+                        },
                         {
                           "type": "BuiltinCommonInstructions::Standard",
                           "conditions": [
                             {
                               "type": {
-                                "value": "CollisionNP"
+                                "value": "VarScene"
                               },
                               "parameters": [
-                                "Character",
-                                "Door",
-                                "",
-                                "",
-                                "yes"
+                                "EnemyTypesCount",
+                                ">",
+                                "0"
                               ]
                             }
                           ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "FlashLayer::FlashLayer"
-                              },
-                              "parameters": [
-                                "",
-                                "\"BlackLayer\"",
-                                "0.2",
-                                ""
-                              ]
-                            }
-                          ],
+                          "actions": [],
                           "events": [
                             {
                               "type": "BuiltinCommonInstructions::Standard",
@@ -5796,125 +5930,426 @@
                                     "value": "ModVarScene"
                                   },
                                   "parameters": [
-                                    "Room.Floor",
-                                    "+",
+                                    "i",
+                                    "=",
                                     "1"
                                   ]
                                 },
                                 {
                                   "type": {
-                                    "value": "MettreXY"
+                                    "value": "Cache"
                                   },
                                   "parameters": [
-                                    "Character",
-                                    "=",
-                                    "Variable(Player.Spawn.X)",
-                                    "=",
-                                    "Variable(Player.Spawn.Y)"
-                                  ]
-                                },
-                                {
-                                  "type": {
-                                    "value": "Delete"
-                                  },
-                                  "parameters": [
-                                    "RoomContent",
-                                    ""
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "BuiltinCommonInstructions::Comment",
-                              "color": {
-                                "b": 109,
-                                "g": 230,
-                                "r": 255,
-                                "textB": 0,
-                                "textG": 0,
-                                "textR": 0
-                              },
-                              "comment": "Update floor decorations",
-                              "comment2": ""
-                            },
-                            {
-                              "type": "BuiltinCommonInstructions::Repeat",
-                              "repeatExpression": "20",
-                              "conditions": [],
-                              "actions": [
-                                {
-                                  "type": {
-                                    "value": "Create"
-                                  },
-                                  "parameters": [
-                                    "",
-                                    "floor_decoration_1",
-                                    "floor.X() + (Random(floor.Width()/16 - 3) + 1) * 16",
-                                    "floor.Y() + (Random(floor.Height()/16 - 3) + 1) * 16",
-                                    ""
-                                  ]
-                                },
-                                {
-                                  "type": {
-                                    "value": "Create"
-                                  },
-                                  "parameters": [
-                                    "",
-                                    "floor_decoration_2",
-                                    "floor.X() + (Random(floor.Width()/16 - 3) + 1) * 16",
-                                    "floor.Y() + (Random(floor.Height()/16 - 3) + 1) * 16",
-                                    ""
+                                    "EnemySpawner"
                                   ]
                                 }
                               ]
                             },
                             {
                               "type": "BuiltinCommonInstructions::Standard",
-                              "conditions": [],
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "SceneVariableAsBoolean"
+                                  },
+                                  "parameters": [
+                                    "IsSpawnersEnabled",
+                                    "False"
+                                  ]
+                                }
+                              ],
+                              "actions": [],
+                              "events": [
+                                {
+                                  "infiniteLoopWarning": true,
+                                  "type": "BuiltinCommonInstructions::While",
+                                  "whileConditions": [
+                                    {
+                                      "type": {
+                                        "value": "VarScene"
+                                      },
+                                      "parameters": [
+                                        "i",
+                                        "<=",
+                                        "Variable(EnemyTypesCount)"
+                                      ]
+                                    }
+                                  ],
+                                  "conditions": [],
+                                  "actions": [],
+                                  "events": [
+                                    {
+                                      "type": "BuiltinCommonInstructions::Standard",
+                                      "conditions": [],
+                                      "actions": [
+                                        {
+                                          "type": {
+                                            "value": "AjoutHasard"
+                                          },
+                                          "parameters": [
+                                            "",
+                                            "EnemySpawner"
+                                          ]
+                                        }
+                                      ],
+                                      "events": [
+                                        {
+                                          "type": "BuiltinCommonInstructions::Standard",
+                                          "conditions": [
+                                            {
+                                              "type": {
+                                                "value": "VarObjetTxt"
+                                              },
+                                              "parameters": [
+                                                "EnemySpawner",
+                                                "EnemyName",
+                                                "=",
+                                                "\"\""
+                                              ]
+                                            }
+                                          ],
+                                          "actions": [
+                                            {
+                                              "type": {
+                                                "value": "ObjectSpawner::ObjectSpawner::SetSpawnPeriod"
+                                              },
+                                              "parameters": [
+                                                "EnemySpawner",
+                                                "ObjectSpawner",
+                                                "Variable(Rooms[Variable(Room.Floor)].Enemies[Variable(i)].Interval)",
+                                                ""
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "ModVarObjetTxt"
+                                              },
+                                              "parameters": [
+                                                "EnemySpawner",
+                                                "EnemyName",
+                                                "=",
+                                                "\"Crawler\""
+                                              ]
+                                            },
+                                            {
+                                              "type": {
+                                                "value": "ModVarScene"
+                                              },
+                                              "parameters": [
+                                                "i",
+                                                "+",
+                                                "1"
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "SetSceneVariableAsBoolean"
+                                      },
+                                      "parameters": [
+                                        "IsSpawnersEnabled",
+                                        "True"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjetTxt"
+                                  },
+                                  "parameters": [
+                                    "EnemySpawner",
+                                    "EnemyName",
+                                    "!=",
+                                    "\"\""
+                                  ]
+                                }
+                              ],
                               "actions": [
                                 {
                                   "type": {
-                                    "value": "AjoutObjConcern"
+                                    "value": "ObjectSpawner::ObjectSpawner::SpawnObject"
                                   },
                                   "parameters": [
-                                    "",
-                                    "floor_decoration_1"
+                                    "EnemySpawner",
+                                    "ObjectSpawner",
+                                    "Crawler",
+                                    ""
                                   ]
                                 },
                                 {
                                   "type": {
-                                    "value": "ChangePlan"
+                                    "value": "Montre"
                                   },
                                   "parameters": [
-                                    "floor_decoration_1",
-                                    "=",
-                                    "10"
-                                  ]
-                                },
-                                {
-                                  "type": {
-                                    "value": "AjoutObjConcern"
-                                  },
-                                  "parameters": [
-                                    "",
-                                    "floor_decoration_2"
-                                  ]
-                                },
-                                {
-                                  "type": {
-                                    "value": "ChangePlan"
-                                  },
-                                  "parameters": [
-                                    "floor_decoration_2",
-                                    "=",
-                                    "10"
+                                    "EnemySpawner",
+                                    ""
                                   ]
                                 }
                               ]
                             }
                           ]
                         }
-                      ]
+                      ],
+                      "parameters": []
+                    },
+                    {
+                      "colorB": 228,
+                      "colorG": 176,
+                      "colorR": 74,
+                      "creationTime": 0,
+                      "name": "Room change",
+                      "source": "",
+                      "type": "BuiltinCommonInstructions::Group",
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "LockedDoor::LockedDoor::IsJustUnlocked"
+                              },
+                              "parameters": [
+                                "Door",
+                                "LockedDoor",
+                                ""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "DebuggerTools::ConsoleLog"
+                              },
+                              "parameters": [
+                                "\"Unlocked\"",
+                                "\"info\"",
+                                "\"effects\""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "LockedDoor::LockedDoor::IsUnlocked"
+                              },
+                              "parameters": [
+                                "Door",
+                                "LockedDoor",
+                                ""
+                              ]
+                            }
+                          ],
+                          "actions": [],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "CollisionNP"
+                                  },
+                                  "parameters": [
+                                    "Character",
+                                    "Door",
+                                    "",
+                                    "",
+                                    "yes"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "FlashLayer::FlashLayer"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "\"BlackLayer\"",
+                                    "0.2",
+                                    ""
+                                  ]
+                                }
+                              ],
+                              "events": [
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "ModVarScene"
+                                      },
+                                      "parameters": [
+                                        "Room.Floor",
+                                        "+",
+                                        "1"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "MettreXY"
+                                      },
+                                      "parameters": [
+                                        "Character",
+                                        "=",
+                                        "Variable(Player.Spawn.X)",
+                                        "=",
+                                        "Variable(Player.Spawn.Y)"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "Delete"
+                                      },
+                                      "parameters": [
+                                        "RoomContent",
+                                        ""
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "Health::Health::RestoreFullHealth"
+                                      },
+                                      "parameters": [
+                                        "Character",
+                                        "Health",
+                                        ""
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "SetSceneVariableAsBoolean"
+                                      },
+                                      "parameters": [
+                                        "IsSpawnersEnabled",
+                                        "False"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "ModVarObjetTxt"
+                                      },
+                                      "parameters": [
+                                        "EnemySpawner",
+                                        "EnemyName",
+                                        "=",
+                                        "\"\""
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "BuiltinCommonInstructions::Comment",
+                                  "color": {
+                                    "b": 109,
+                                    "g": 230,
+                                    "r": 255,
+                                    "textB": 0,
+                                    "textG": 0,
+                                    "textR": 0
+                                  },
+                                  "comment": "Update floor decorations",
+                                  "comment2": ""
+                                },
+                                {
+                                  "type": "BuiltinCommonInstructions::Repeat",
+                                  "repeatExpression": "20",
+                                  "conditions": [],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "Create"
+                                      },
+                                      "parameters": [
+                                        "",
+                                        "floor_decoration_1",
+                                        "floor.X() + (Random(floor.Width()/16 - 3) + 1) * 16",
+                                        "floor.Y() + (Random(floor.Height()/16 - 3) + 1) * 16",
+                                        ""
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "Create"
+                                      },
+                                      "parameters": [
+                                        "",
+                                        "floor_decoration_2",
+                                        "floor.X() + (Random(floor.Width()/16 - 3) + 1) * 16",
+                                        "floor.Y() + (Random(floor.Height()/16 - 3) + 1) * 16",
+                                        ""
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "AjoutObjConcern"
+                                      },
+                                      "parameters": [
+                                        "",
+                                        "floor_decoration_1"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "ChangePlan"
+                                      },
+                                      "parameters": [
+                                        "floor_decoration_1",
+                                        "=",
+                                        "10"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "AjoutObjConcern"
+                                      },
+                                      "parameters": [
+                                        "",
+                                        "floor_decoration_2"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "ChangePlan"
+                                      },
+                                      "parameters": [
+                                        "floor_decoration_2",
+                                        "=",
+                                        "10"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "parameters": []
                     }
                   ],
                   "parameters": []
@@ -6338,7 +6773,7 @@
                               "parameters": [
                                 "DebugText",
                                 "+",
-                                "\"Room: \" + ToString(Variable(Room.Floor)) + NewLine()"
+                                "\"Room: \" + ToString(Variable(Room.Floor)) + \"/\" + VariableString(Rooms[0]) + NewLine()"
                               ]
                             },
                             {
@@ -6421,6 +6856,16 @@
                                 "+",
                                 "\" \" + Door.LockedDoor::ScoreText() + NewLine()"
                               ]
+                            },
+                            {
+                              "type": {
+                                "value": "BBText::SetBBText"
+                              },
+                              "parameters": [
+                                "DebugText",
+                                "+",
+                                "\"Enemy types count: \" + ToString(Variable(EnemyTypesCount)) + NewLine()"
+                              ]
                             }
                           ]
                         },
@@ -6435,10 +6880,32 @@
                               "parameters": [
                                 "DebugText",
                                 "+",
-                                "\"Loaded rooms config: \" + VariableString(RoomsConfigRaw) + NewLine()"
+                                "\"rooms.json: \" + VariableString(RoomsConfigRaw) + NewLine()"
                               ]
                             }
                           ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::ForEach",
+                          "object": "EnemySpawner",
+                          "conditions": [],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "BBText::SetBBText"
+                              },
+                              "parameters": [
+                                "DebugText",
+                                "+",
+                                "\"Spawner (\" + ToString(EnemySpawner.X()) + \",\" + ToString(EnemySpawner.Y()) + \"): Period - \" + ToString(EnemySpawner.ObjectSpawner::SpawnPeriod()) + \", Enemy - \" + EnemySpawner.VariableString(EnemyName) + NewLine()"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [],
+                          "actions": []
                         }
                       ],
                       "parameters": []
@@ -6543,6 +7010,10 @@
         {
           "name": "LockedDoor",
           "type": "LockedDoor::LockedDoor"
+        },
+        {
+          "name": "ObjectSpawner",
+          "type": "ObjectSpawner::ObjectSpawner"
         },
         {
           "name": "Pathfinding",
@@ -25212,6 +25683,57 @@
                       },
                       "parameters": [
                         "Object.Behavior::PropertyLastHitDamage()"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "codeOnly": false,
+                  "defaultValue": "",
+                  "description": "Object",
+                  "longDescription": "",
+                  "name": "Object",
+                  "optional": false,
+                  "supplementaryInformation": "",
+                  "type": "object"
+                },
+                {
+                  "codeOnly": false,
+                  "defaultValue": "",
+                  "description": "Behavior",
+                  "longDescription": "",
+                  "name": "Behavior",
+                  "optional": false,
+                  "supplementaryInformation": "Health::Health",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "",
+              "fullName": "Restore full character health",
+              "functionType": "Action",
+              "group": "",
+              "name": "RestoreFullHealth",
+              "private": false,
+              "sentence": "Restore full _PARAM0_ health",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Health::Health::SetPropertyHealth"
+                      },
+                      "parameters": [
+                        "Object",
+                        "Behavior",
+                        "=",
+                        "Object.Behavior::MaxHealth()"
                       ]
                     }
                   ]

@@ -1,21 +1,22 @@
-{
-    "Waves": {
-        "Count": 2,
-        "Items": [
+[
+    2,
+    {
+        "TargetScore": 1
+    },
+    {
+        "TargetScore": 2,
+        "TimeLimit": 60,
+        "MoveSpawnersInterval": 5,
+        "Enemies": [
+            2,
             {
-                "TargetScore": 1
+                "Name": "Crawler",
+                "Interval": 5
             },
             {
-                "TargetScore": 2,
-                "TimeLimit": 60,
-                "Enemies": {
-                    "Count": 1,
-                    "Items": {
-                        "Name": "Crawler",
-                        "Interval": 5
-                    }
-                }
+                "Name": "Crawler",
+                "Interval": 10
             }
         ]
     }
-}
+]
