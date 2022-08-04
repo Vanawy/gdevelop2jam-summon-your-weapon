@@ -64,6 +64,14 @@
   "resources": {
     "resources": [
       {
+        "disablePreload": false,
+        "file": "rooms.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "rooms",
+        "userAdded": true
+      },
+      {
         "alwaysLoaded": false,
         "file": "assets/DungeonTiles/tile_0014.png",
         "kind": "image",
@@ -3153,7 +3161,21 @@
                       ]
                     }
                   ],
-                  "actions": []
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SendAsyncRequest"
+                      },
+                      "parameters": [
+                        "\"rooms.json\"",
+                        "\"\"",
+                        "\"GET\"",
+                        "",
+                        "RoomsConfigRaw",
+                        "RoomsConfigError"
+                      ]
+                    }
+                  ]
                 }
               ],
               "parameters": []
@@ -6092,7 +6114,6 @@
           "colorG": 117,
           "colorR": 65,
           "creationTime": 0,
-          "folded": true,
           "name": "DEBUG",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -6399,6 +6420,22 @@
                                 "DebugText",
                                 "+",
                                 "\" \" + Door.LockedDoor::ScoreText() + NewLine()"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "BBText::SetBBText"
+                              },
+                              "parameters": [
+                                "DebugText",
+                                "+",
+                                "\"Loaded rooms config: \" + VariableString(RoomsConfigRaw) + NewLine()"
                               ]
                             }
                           ]
