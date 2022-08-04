@@ -566,7 +566,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 1.569999999999962,
+        "zoomFactor": 2.0699999999999625,
         "windowMask": false
       },
       "objectsGroups": [
@@ -671,29 +671,6 @@
           "name": "i",
           "type": "number",
           "value": 0
-        },
-        {
-          "name": "Room",
-          "type": "structure",
-          "children": [
-            {
-              "folded": true,
-              "name": "Floor",
-              "type": "number",
-              "value": 0
-            }
-          ]
-        },
-        {
-          "name": "TargetScores",
-          "type": "array",
-          "children": [
-            {
-              "folded": true,
-              "type": "number",
-              "value": 1
-            }
-          ]
         }
       ],
       "instances": [
@@ -3147,6 +3124,44 @@
       ],
       "events": [
         {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "LOADING CONFIG",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "name": "Load room json",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "DepartScene"
+                      },
+                      "parameters": [
+                        ""
+                      ]
+                    }
+                  ],
+                  "actions": []
+                }
+              ],
+              "parameters": []
+            }
+          ],
+          "parameters": []
+        },
+        {
           "colorB": 224,
           "colorG": 16,
           "colorR": 189,
@@ -5516,7 +5531,7 @@
                           "parameters": [
                             "Door",
                             "LockedDoor",
-                            "Variable(TargetScores[Variable(Room.Floor)])",
+                            "Variable(Room.TargetScores[Variable(Room.Floor)])",
                             ""
                           ]
                         }
@@ -5581,6 +5596,50 @@
                           ],
                           "actions": [],
                           "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "inverted": true,
+                                    "value": "Distance"
+                                  },
+                                  "parameters": [
+                                    "MoveHint",
+                                    "Character",
+                                    "128",
+                                    ""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "Delete"
+                                  },
+                                  "parameters": [
+                                    "MoveHint",
+                                    ""
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "Opacity"
+                                  },
+                                  "parameters": [
+                                    "MoveHint",
+                                    "=",
+                                    "255 * (1 -DistanceBetweenPositions(Character.X(), Character.Y(), MoveHint.X(), MoveHint.Y()) / 128)"
+                                  ]
+                                }
+                              ]
+                            },
                             {
                               "type": "BuiltinCommonInstructions::Standard",
                               "conditions": [
@@ -6021,63 +6080,6 @@
                     "Buttons",
                     "\"Hover\"",
                     "no"
-                  ]
-                }
-              ]
-            }
-          ],
-          "parameters": []
-        },
-        {
-          "colorB": 228,
-          "colorG": 176,
-          "colorR": 74,
-          "creationTime": 0,
-          "folded": true,
-          "name": "Tutorial",
-          "source": "",
-          "type": "BuiltinCommonInstructions::Group",
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "inverted": true,
-                    "value": "Distance"
-                  },
-                  "parameters": [
-                    "MoveHint",
-                    "Character",
-                    "128",
-                    ""
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Delete"
-                  },
-                  "parameters": [
-                    "MoveHint",
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Opacity"
-                  },
-                  "parameters": [
-                    "MoveHint",
-                    "=",
-                    "255 * (1 -DistanceBetweenPositions(Character.X(), Character.Y(), MoveHint.X(), MoveHint.Y()) / 128)"
                   ]
                 }
               ]
@@ -33470,6 +33472,60 @@
           ]
         }
       ]
+    },
+    {
+      "author": "",
+      "category": "",
+      "description": "",
+      "extensionNamespace": "",
+      "fullName": "",
+      "helpPath": "",
+      "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0ibWRpLXNoYXBlLWNpcmNsZS1wbHVzIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLDE5QTYsNiAwIDAsMCAxNywxM0gxOUE4LDggMCAwLDEgMTEsMjFBOCw4IDAgMCwxIDMsMTNBOCw4IDAgMCwxIDExLDVWN0E2LDYgMCAwLDAgNSwxM0E2LDYgMCAwLDAgMTEsMTlNMTksNUgyMlY3SDE5VjEwSDE3VjdIMTRWNUgxN1YySDE5VjVaIiAvPjwvc3ZnPg==",
+      "name": "EnemySpawner",
+      "previewIconUrl": "https://resources.gdevelop-app.com/assets/Icons/shape-circle-plus.svg",
+      "shortDescription": "",
+      "version": "",
+      "tags": [],
+      "authorIds": [
+        "RFTZO6igBbZhWuuEvPigkjLtCb83"
+      ],
+      "dependencies": [],
+      "eventsFunctions": [
+        {
+          "description": "",
+          "fullName": "Spawn enemies at chosen points",
+          "functionType": "Action",
+          "group": "",
+          "name": "SpawnEnemies",
+          "private": false,
+          "sentence": "Spawn _PARAM1_ enemies at _PARAM2_ points",
+          "events": [],
+          "parameters": [
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "",
+              "longDescription": "",
+              "name": "EnemyCount",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "expression"
+            },
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "",
+              "longDescription": "",
+              "name": "Parameter",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "objectList"
+            }
+          ],
+          "objectGroups": []
+        }
+      ],
+      "eventsBasedBehaviors": []
     }
   ],
   "externalLayouts": [],

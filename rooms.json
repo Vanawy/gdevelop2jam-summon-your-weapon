@@ -1,0 +1,21 @@
+{
+    "Waves": {
+        "Count": 2,
+        "Items": [
+            {
+                "TargetScore": 1
+            },
+            {
+                "TargetScore": 2,
+                "TimeLimit": 60,
+                "Enemies": {
+                    "Count": 1,
+                    "Items": {
+                        "Name": "Crawler",
+                        "Interval": 5
+                    }
+                }
+            }
+        ]
+    }
+}
