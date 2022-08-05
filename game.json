@@ -574,7 +574,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 1.209999999999962,
+        "zoomFactor": 1.7299999999999625,
         "windowMask": false
       },
       "objectsGroups": [
@@ -1551,29 +1551,6 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
-          "locked": false,
-          "name": "Pickup",
-          "persistentUuid": "842a37ed-f358-4c13-806d-50b1f9b63c1d",
-          "width": 0,
-          "x": 176,
-          "y": 96,
-          "zOrder": 29,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": [
-            {
-              "folded": true,
-              "name": "Name",
-              "type": "string",
-              "value": "Shield"
-            }
-          ]
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
           "layer": "UI",
           "locked": false,
           "name": "RoomTimeLimit",
@@ -1582,6 +1559,22 @@
           "x": 432,
           "y": 238,
           "zOrder": 102,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "HealthBarPainter",
+          "persistentUuid": "bdfd8a9a-f747-4466-bdd2-3e473541fe55",
+          "width": 0,
+          "x": -112,
+          "y": 16,
+          "zOrder": 1000,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -2163,7 +2156,7 @@
               "type": "Health::Health",
               "Health": 10,
               "DamageCooldown": 0,
-              "MaxHealth": 0,
+              "MaxHealth": 10,
               "IsJustDamaged": false,
               "CooldownActive": false,
               "DodgeChance": 0,
@@ -2331,7 +2324,7 @@
               "type": "Health::Health",
               "Health": 3,
               "DamageCooldown": 0,
-              "MaxHealth": 0,
+              "MaxHealth": 3,
               "IsJustDamaged": false,
               "CooldownActive": false
             },
@@ -3380,6 +3373,30 @@
             "g": 255,
             "r": 255
           }
+        },
+        {
+          "assetStoreId": "",
+          "name": "HealthBarPainter",
+          "tags": "",
+          "type": "PrimitiveDrawing::Drawer",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "fillOpacity": 255,
+          "outlineSize": 1,
+          "outlineOpacity": 0,
+          "fillColor": {
+            "b": 0,
+            "g": 0,
+            "r": 255
+          },
+          "outlineColor": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          },
+          "absoluteCoordinates": true,
+          "clearBetweenFrames": true
         }
       ],
       "events": [
@@ -5362,7 +5379,6 @@
                   "colorG": 176,
                   "colorR": 74,
                   "creationTime": 0,
-                  "folded": true,
                   "name": "Enemies",
                   "source": "",
                   "type": "BuiltinCommonInstructions::Group",
@@ -5481,6 +5497,67 @@
                           ]
                         }
                       ]
+                    },
+                    {
+                      "colorB": 228,
+                      "colorG": 176,
+                      "colorR": 74,
+                      "creationTime": 0,
+                      "name": "HealthBars",
+                      "source": "",
+                      "type": "BuiltinCommonInstructions::Group",
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::ForEach",
+                          "object": "Enemies",
+                          "conditions": [],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "PrimitiveDrawing::FillColor"
+                              },
+                              "parameters": [
+                                "HealthBarPainter",
+                                "\"255;255;255\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "PrimitiveDrawing::Rectangle"
+                              },
+                              "parameters": [
+                                "HealthBarPainter",
+                                "Enemies.X()",
+                                "Enemies.Y() - 2",
+                                "Enemies.X() + Enemies.Width()",
+                                "Enemies.Y()"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "PrimitiveDrawing::FillColor"
+                              },
+                              "parameters": [
+                                "HealthBarPainter",
+                                "\"255;0;0\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "PrimitiveDrawing::Rectangle"
+                              },
+                              "parameters": [
+                                "HealthBarPainter",
+                                "Enemies.X()",
+                                "Enemies.Y() - 2",
+                                "Enemies.X() + Enemies.Width() * Enemies.Health::HealthNormalized()",
+                                "Enemies.Y()"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "parameters": []
                     }
                   ],
                   "parameters": []
@@ -5976,24 +6053,126 @@
                       "events": [
                         {
                           "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [],
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarScene"
+                              },
+                              "parameters": [
+                                "Room.TimeLimit",
+                                "!=",
+                                "Variable(Rooms[Variable(Room.Floor)].TimeLimit)"
+                              ]
+                            }
+                          ],
                           "actions": [
                             {
                               "type": {
                                 "value": "ModVarScene"
                               },
                               "parameters": [
-                                "RoomTimeLimit",
+                                "Room.TimeLimit",
                                 "=",
                                 "Variable(Rooms[Variable(Room.Floor)].TimeLimit)"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ResetObjectTimer"
+                              },
+                              "parameters": [
+                                "Door",
+                                "\"SpawnersEnabled\""
                               ]
                             }
                           ]
                         },
                         {
+                          "type": "BuiltinCommonInstructions::Comment",
+                          "color": {
+                            "b": 109,
+                            "g": 230,
+                            "r": 255,
+                            "textB": 0,
+                            "textG": 0,
+                            "textR": 0
+                          },
+                          "comment": "Timer finished",
+                          "comment2": ""
+                        },
+                        {
                           "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [],
-                          "actions": []
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "CompareObjectTimer"
+                              },
+                              "parameters": [
+                                "Door",
+                                "\"SpawnersEnabled\"",
+                                ">",
+                                "Variable(Room.TimeLimit)"
+                              ]
+                            }
+                          ],
+                          "actions": [],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "BuiltinCommonInstructions::Once"
+                                  },
+                                  "parameters": []
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "Cache"
+                                  },
+                                  "parameters": [
+                                    "EnemySpawner"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "SceneInstancesCount"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "Enemies",
+                                    "=",
+                                    "0"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "BuiltinCommonInstructions::Once"
+                                  },
+                                  "parameters": []
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "LockedDoor::LockedDoor::IncreaseScore"
+                                  },
+                                  "parameters": [
+                                    "Door",
+                                    "LockedDoor",
+                                    ""
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ],
                       "parameters": []
@@ -6003,7 +6182,6 @@
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
-                      "folded": true,
                       "name": "Spawn enemies",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
@@ -6046,9 +6224,31 @@
                                 ">",
                                 "0"
                               ]
+                            },
+                            {
+                              "type": {
+                                "value": "CompareObjectTimer"
+                              },
+                              "parameters": [
+                                "Door",
+                                "\"SpawnersEnabled\"",
+                                "<=",
+                                "Variable(Room.TimeLimit)"
+                              ]
                             }
                           ],
-                          "actions": [],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "RoomTimeLimit",
+                                "=",
+                                "TimeFormatter::SecondsToHHMMSS(Variable(Room.TimeLimit) - Door.ObjectTimerElapsedTime(\"SpawnersEnabled\"))"
+                              ]
+                            }
+                          ],
                           "events": [
                             {
                               "type": "BuiltinCommonInstructions::Standard",
@@ -6075,7 +6275,6 @@
                               ]
                             },
                             {
-                              "folded": true,
                               "type": "BuiltinCommonInstructions::Standard",
                               "conditions": [
                                 {
@@ -6095,10 +6294,10 @@
                                     },
                                     {
                                       "type": {
-                                        "value": "CompareTimer"
+                                        "value": "CompareObjectTimer"
                                       },
                                       "parameters": [
-                                        "",
+                                        "Door",
                                         "\"MoveSpawners\"",
                                         ">",
                                         "Variable(MoveSpawnersInterval)"
@@ -6221,10 +6420,10 @@
                                             },
                                             {
                                               "type": {
-                                                "value": "ResetTimer"
+                                                "value": "ResetObjectTimer"
                                               },
                                               "parameters": [
-                                                "",
+                                                "Door",
                                                 "\"MoveSpawners\""
                                               ]
                                             }
@@ -6745,7 +6944,6 @@
           "colorG": 117,
           "colorR": 65,
           "creationTime": 0,
-          "folded": true,
           "name": "DEBUG",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -6890,7 +7088,6 @@
                   ]
                 },
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -7107,6 +7304,23 @@
                                 "DebugText",
                                 "+",
                                 "\"Spawner (\" + ToString(EnemySpawner.X()) + \",\" + ToString(EnemySpawner.Y()) + \"): Period - \" + ToString(EnemySpawner.ObjectSpawner::SpawnPeriod()) + \", Enemy - \" + EnemySpawner.VariableString(EnemyName) + NewLine()"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::ForEach",
+                          "object": "Enemies",
+                          "conditions": [],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "BBText::SetBBText"
+                              },
+                              "parameters": [
+                                "DebugText",
+                                "+",
+                                "\"Enemy HP- \" + ToString(Enemies.Health::HealthNormalized())+ NewLine()"
                               ]
                             }
                           ]
@@ -26006,6 +26220,54 @@
                         "Behavior",
                         "=",
                         "Object.Behavior::MaxHealth()"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": [
+                {
+                  "codeOnly": false,
+                  "defaultValue": "",
+                  "description": "Object",
+                  "longDescription": "",
+                  "name": "Object",
+                  "optional": false,
+                  "supplementaryInformation": "",
+                  "type": "object"
+                },
+                {
+                  "codeOnly": false,
+                  "defaultValue": "",
+                  "description": "Behavior",
+                  "longDescription": "",
+                  "name": "Behavior",
+                  "optional": false,
+                  "supplementaryInformation": "Health::Health",
+                  "type": "behavior"
+                }
+              ],
+              "objectGroups": []
+            },
+            {
+              "description": "Get normalized current health value of _PARAM0_ (from 0 to 1)",
+              "fullName": "Get normalized current health value ",
+              "functionType": "Expression",
+              "group": "",
+              "name": "HealthNormalized",
+              "private": false,
+              "sentence": "",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetReturnNumber"
+                      },
+                      "parameters": [
+                        "Object.Behavior::Health() / Object.Behavior::MaxHealth()"
                       ]
                     }
                   ]

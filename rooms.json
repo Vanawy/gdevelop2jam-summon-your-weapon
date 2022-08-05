@@ -5,7 +5,7 @@
     },
     {
         "TargetScore": 2,
-        "TimeLimit": 60,
+        "TimeLimit": 10,
         "MoveSpawnersInterval": 5,
         "Enemies": [
             2,
