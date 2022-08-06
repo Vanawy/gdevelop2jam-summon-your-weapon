@@ -1,0 +1,60 @@
+[
+    3,
+    {
+        "TargetScore": 1
+    },
+    {
+        "TargetScore": 2,
+        "TimeLimit": 20,
+        "MoveSpawnersInterval": 5,
+        "Enemies": [
+            2,
+            {
+                "Name": "Crawler",
+                "Interval": 3
+            },
+            {
+                "Name": "Crawler",
+                "Interval": 3
+            }
+        ],
+        "Rewards": [
+            2,
+            {
+                "Name": "Shield"
+            },
+            {
+                "Name": "Knife"
+            }
+        ]
+    },
+    {
+        "TargetScore": 2,
+        "TimeLimit": 30,
+        "MoveSpawnersInterval": 5,
+        "Enemies": [
+            3,
+            {
+                "Name": "Crawler",
+                "Interval": 2
+            },
+            {
+                "Name": "Crawler",
+                "Interval": 3
+            },
+            {
+                "Name": "Spider",
+                "Interval": 10
+            }
+        ],
+        "Rewards": [
+            2,
+            {
+                "Name": "Shield"
+            },
+            {
+                "Name": "Knife"
+            }
+        ]
+    }
+]
