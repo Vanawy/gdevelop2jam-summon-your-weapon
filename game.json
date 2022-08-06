@@ -17,13 +17,13 @@
     "sizeOnStartupMode": "",
     "templateSlug": "",
     "useExternalSourceFiles": false,
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "Armed Companions",
     "description": "Controls:\n\nMove: WASD of Arrows / Or u can use Left stick on gamepad\n\nPause: Escape",
     "author": "vanawy.dev",
     "windowWidth": 1280,
     "windowHeight": 720,
-    "latestCompilationDirectory": "C:\\Users\\HAFF\\Documents\\GDevelop projects\\SummonYourWeapon\\build\\ArmedCompanions1.0.0",
+    "latestCompilationDirectory": "C:\\Users\\HAFF\\Documents\\GDevelop projects\\SummonYourWeapon\\build\\ArmedCompanions1.0.1",
     "maxFPS": 60,
     "minFPS": 20,
     "verticalSync": false,
@@ -13613,7 +13613,7 @@
                                           "parameters": [
                                             "Room.Floor",
                                             ">",
-                                            "1"
+                                            "Variable(Rooms[0])"
                                           ]
                                         },
                                         {
