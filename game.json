@@ -17,13 +17,13 @@
     "sizeOnStartupMode": "",
     "templateSlug": "",
     "useExternalSourceFiles": false,
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "Armed Companions",
     "description": "Controls:\n\nMove: WASD of Arrows / Or u can use Left stick on gamepad\n\nPause: Escape",
     "author": "vanawy.dev",
     "windowWidth": 1280,
     "windowHeight": 720,
-    "latestCompilationDirectory": "C:\\Users\\HAFF\\Documents\\GDevelop projects\\SummonYourWeapon\\build\\ArmedCompanions1.0.1",
+    "latestCompilationDirectory": "C:\\Users\\HAFF\\Documents\\GDevelop projects\\SummonYourWeapon\\build\\ArmedCompanions1.0.2",
     "maxFPS": 60,
     "minFPS": 20,
     "verticalSync": false,
@@ -1659,6 +1659,16 @@
         "name": "assets\\Cover.png",
         "smoothed": false,
         "userAdded": true
+      },
+      {
+        "file": "assets/Audio/sfx/new-item.wav",
+        "kind": "audio",
+        "metadata": "",
+        "name": "assets\\Audio\\sfx\\new-item.wav",
+        "preloadAsMusic": false,
+        "preloadAsSound": false,
+        "preloadInCache": false,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -1718,7 +1728,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 0.5099999999999623,
+        "zoomFactor": 0.9899999999999619,
         "windowMask": true
       },
       "objectsGroups": [
@@ -2518,13 +2528,13 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "UI",
+          "layer": "TextLayer",
           "locked": false,
           "name": "HPText",
           "persistentUuid": "c8f6a92a-aa7e-4266-a476-3d56243e9382",
           "width": 0,
-          "x": 448,
-          "y": 256,
+          "x": 68,
+          "y": 64,
           "zOrder": 24,
           "numberProperties": [],
           "stringProperties": [],
@@ -2998,13 +3008,13 @@
           "angle": 0,
           "customSize": true,
           "height": 16,
-          "layer": "UI",
+          "layer": "TextLayer",
           "locked": false,
           "name": "RoomTimeLimit",
           "persistentUuid": "7c370fef-0d44-4def-82ad-55bfff32e3ff",
           "width": 64,
-          "x": 432,
-          "y": 448,
+          "x": 64,
+          "y": 640,
           "zOrder": 102,
           "numberProperties": [],
           "stringProperties": [],
@@ -3356,13 +3366,13 @@
           "angle": 0,
           "customSize": true,
           "height": 16,
-          "layer": "UI",
+          "layer": "TextLayer",
           "locked": false,
           "name": "FloorText",
           "persistentUuid": "9e30ccfc-4550-41fa-85f7-4a50b4de8e44",
           "width": 272,
-          "x": 496,
-          "y": 448,
+          "x": 128,
+          "y": 640,
           "zOrder": 1016,
           "numberProperties": [],
           "stringProperties": [],
@@ -3497,6 +3507,54 @@
           "x": 576,
           "y": 288,
           "zOrder": 1023,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "ItemPickup",
+          "persistentUuid": "9afa3266-6930-4816-be03-0e80d3501d24",
+          "width": 0,
+          "x": 240,
+          "y": 128,
+          "zOrder": 1024,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 0,
+          "layer": "UI",
+          "locked": true,
+          "name": "ItemIcon",
+          "persistentUuid": "5309e608-d75f-4b65-85ae-39a5700842cb",
+          "width": 0,
+          "x": 514,
+          "y": 256,
+          "zOrder": 1025,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 75,
+          "layer": "TextLayer",
+          "locked": false,
+          "name": "ItemDescription",
+          "persistentUuid": "62a1ed2c-d70c-4d8b-b73f-33d1d3581c53",
+          "width": 416,
+          "x": 304,
+          "y": 96,
+          "zOrder": 1026,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -7820,6 +7878,188 @@
         },
         {
           "assetStoreId": "",
+          "name": "ItemIcon",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "folded": true,
+              "name": "Name",
+              "type": "string",
+              "value": "null"
+            },
+            {
+              "name": "Position",
+              "type": "structure",
+              "children": [
+                {
+                  "folded": true,
+                  "name": "X",
+                  "type": "number",
+                  "value": 0
+                },
+                {
+                  "folded": true,
+                  "name": "Y",
+                  "type": "number",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "CoffeeSeed",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 1,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\items1.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Dreidel",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\items2.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "RitualDagger",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\items3.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Transistor",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\items4.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "LightningChain",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\items5.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
           "name": "LightningChainProjectile",
           "tags": "",
           "type": "Sprite",
@@ -7975,6 +8215,25 @@
             "g": 255,
             "r": 255
           }
+        },
+        {
+          "assetStoreId": "",
+          "name": "ItemDescription",
+          "tags": "",
+          "type": "BBText::BBText",
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "content": {
+            "text": "[b]Item name[/b]\nItem description",
+            "opacity": 255,
+            "fontSize": 20,
+            "visible": true,
+            "color": "0;0;0",
+            "fontFamily": "assets\\Kenney Mini.ttf",
+            "align": "left",
+            "wordWrap": true
+          }
         }
       ],
       "events": [
@@ -8047,7 +8306,6 @@
           "colorG": 16,
           "colorR": 189,
           "creationTime": 0,
-          "folded": true,
           "name": "Camera",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -8808,7 +9066,6 @@
                   "colorG": 176,
                   "colorR": 74,
                   "creationTime": 0,
-                  "folded": true,
                   "name": "Collision Detection",
                   "source": "",
                   "type": "BuiltinCommonInstructions::Group",
@@ -9015,7 +9272,6 @@
                       "comment2": ""
                     },
                     {
-                      "folded": true,
                       "type": "BuiltinCommonInstructions::Standard",
                       "conditions": [
                         {
@@ -9327,6 +9583,7 @@
                   "colorG": 176,
                   "colorR": 74,
                   "creationTime": 0,
+                  "folded": true,
                   "name": "Enemies",
                   "source": "",
                   "type": "BuiltinCommonInstructions::Group",
@@ -10426,7 +10683,6 @@
                   "parameters": []
                 },
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -10677,6 +10933,7 @@
                           "comment2": ""
                         },
                         {
+                          "folded": true,
                           "type": "BuiltinCommonInstructions::ForEach",
                           "object": "Pickup",
                           "conditions": [],
@@ -10781,11 +11038,45 @@
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
-                      "folded": true,
                       "name": "Items",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
                       "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "DepartScene"
+                              },
+                              "parameters": [
+                                ""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "ModVarScene"
+                              },
+                              "parameters": [
+                                "NewItemIconPosition.X",
+                                "=",
+                                "ItemIcon.X()"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ModVarScene"
+                              },
+                              "parameters": [
+                                "NewItemIconPosition.Y",
+                                "=",
+                                "ItemIcon.Y()"
+                              ]
+                            }
+                          ]
+                        },
                         {
                           "type": "BuiltinCommonInstructions::Comment",
                           "color": {
@@ -11022,39 +11313,164 @@
                           "comment2": ""
                         },
                         {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
+                          "type": "BuiltinCommonInstructions::ForEach",
+                          "object": "ItemPickup",
+                          "conditions": [],
+                          "actions": [],
+                          "events": [
                             {
-                              "type": {
-                                "value": "CollisionNP"
-                              },
-                              "parameters": [
-                                "Character",
-                                "ItemPickup",
-                                "",
-                                "",
-                                "no"
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "Inventory::Add"
-                              },
-                              "parameters": [
-                                "",
-                                "VariableString(Items.Player)",
-                                "ItemPickup.VariableString(Name)"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "Delete"
-                              },
-                              "parameters": [
-                                "ItemPickup",
-                                ""
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "CollisionNP"
+                                  },
+                                  "parameters": [
+                                    "Character",
+                                    "ItemPickup",
+                                    "",
+                                    "",
+                                    "no"
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "Inventory::Add"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "VariableString(Items.Player)",
+                                    "ItemPickup.VariableString(Name)"
+                                  ]
+                                }
+                              ],
+                              "events": [
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "ModVarSceneTxt"
+                                      },
+                                      "parameters": [
+                                        "NewItemIconPosition.Name",
+                                        "=",
+                                        "ItemPickup.VariableString(Name)"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [
+                                    {
+                                      "type": {
+                                        "value": "VarSceneTxt"
+                                      },
+                                      "parameters": [
+                                        "NewItemIconPosition.Name",
+                                        "!=",
+                                        "\"null\""
+                                      ]
+                                    }
+                                  ],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "Create"
+                                      },
+                                      "parameters": [
+                                        "",
+                                        "ItemIcon",
+                                        "ItemPickup.X() - CameraBorderLeft(\"\") + CameraBorderLeft(\"UI\")",
+                                        "ItemPickup.Y() - CameraBorderTop(\"\") + CameraBorderTop(\"UI\")",
+                                        "\"UI\""
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "ModVarObjetTxt"
+                                      },
+                                      "parameters": [
+                                        "ItemIcon",
+                                        "Name",
+                                        "=",
+                                        "VariableString(NewItemIconPosition.Name)"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "SetAnimationName"
+                                      },
+                                      "parameters": [
+                                        "ItemIcon",
+                                        "ItemIcon.VariableString(Name)"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "ModVarObjet"
+                                      },
+                                      "parameters": [
+                                        "ItemIcon",
+                                        "Position.X",
+                                        "=",
+                                        "Variable(NewItemIconPosition.X)"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "ModVarObjet"
+                                      },
+                                      "parameters": [
+                                        "ItemIcon",
+                                        "Position.Y",
+                                        "=",
+                                        "Variable(NewItemIconPosition.Y)"
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "ModVarScene"
+                                      },
+                                      "parameters": [
+                                        "NewItemIconPosition.X",
+                                        "+",
+                                        "ItemIcon.Width()"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "BuiltinCommonInstructions::Standard",
+                                  "conditions": [],
+                                  "actions": [
+                                    {
+                                      "type": {
+                                        "value": "Delete"
+                                      },
+                                      "parameters": [
+                                        "ItemPickup",
+                                        ""
+                                      ]
+                                    },
+                                    {
+                                      "type": {
+                                        "value": "PlaySound"
+                                      },
+                                      "parameters": [
+                                        "",
+                                        "assets\\Audio\\sfx\\new-item.wav",
+                                        "",
+                                        "GlobalVariable(SoundVolume.SFX)",
+                                        ""
+                                      ]
+                                    }
+                                  ]
+                                }
                               ]
                             }
                           ]
@@ -11078,6 +11494,7 @@
                           "actions": []
                         },
                         {
+                          "folded": true,
                           "type": "BuiltinCommonInstructions::ForEach",
                           "object": "Enemies",
                           "conditions": [
@@ -11150,6 +11567,222 @@
                                     "Enemies.CenterX()",
                                     "Enemies.CenterY()",
                                     ""
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Comment",
+                          "color": {
+                            "b": 109,
+                            "g": 230,
+                            "r": 255,
+                            "textB": 0,
+                            "textG": 0,
+                            "textR": 0
+                          },
+                          "comment": "Animate icons",
+                          "comment2": ""
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "ItemIcon",
+                                "Name",
+                                "!=",
+                                "\"null\""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "MettreXY"
+                              },
+                              "parameters": [
+                                "ItemIcon",
+                                "=",
+                                "lerp(ItemIcon.X(), ItemIcon.Variable(Position.X), 2 * TimeDelta())",
+                                "=",
+                                "lerp(ItemIcon.Y(), ItemIcon.Variable(Position.Y), 2 * TimeDelta())"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Comment",
+                          "color": {
+                            "b": 109,
+                            "g": 230,
+                            "r": 255,
+                            "textB": 0,
+                            "textG": 0,
+                            "textR": 0
+                          },
+                          "comment": "Item description\n",
+                          "comment2": ""
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "inverted": true,
+                                "value": "SourisSurObjet"
+                              },
+                              "parameters": [
+                                "ItemIcon",
+                                "",
+                                "yes",
+                                ""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "Cache"
+                              },
+                              "parameters": [
+                                "ItemDescription"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "SourisSurObjet"
+                              },
+                              "parameters": [
+                                "ItemIcon",
+                                "",
+                                "yes",
+                                ""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "Montre"
+                              },
+                              "parameters": [
+                                "ItemDescription",
+                                ""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "BBText::SetBBText"
+                              },
+                              "parameters": [
+                                "ItemDescription",
+                                "=",
+                                "BBTextHelper::Bold(ItemIcon.VariableString(Name)) + \" [\" + ToString(Inventory::Count(VariableString(Items.Player), ItemIcon.VariableString(Name))) + \"]\" + NewLine()"
+                              ]
+                            }
+                          ],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjetTxt"
+                                  },
+                                  "parameters": [
+                                    "ItemIcon",
+                                    "Name",
+                                    "=",
+                                    "\"Dreidel\""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "BBText::SetBBText"
+                                  },
+                                  "parameters": [
+                                    "ItemDescription",
+                                    "+",
+                                    "\"Critical chance increased by \" +BBTextHelper::BoldColored(ToString(roundTo(Inventory::Count(VariableString(Items.Player), \"Dreidel\") * Variable(ItemEffects.Dreidel.CritChance) * 100, 1)) + \"%\", \"f00\")"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjetTxt"
+                                  },
+                                  "parameters": [
+                                    "ItemIcon",
+                                    "Name",
+                                    "=",
+                                    "\"CoffeeSeed\""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "BBText::SetBBText"
+                                  },
+                                  "parameters": [
+                                    "ItemDescription",
+                                    "+",
+                                    "\"Cooldown reduced by \" + BBTextHelper::BoldColored(ToString(roundTo(Inventory::Count(VariableString(Items.Player), \"CoffeeSeed\") * Variable(ItemEffects.CoffeeSeed.CDReduction) * 100, 1)) + \"%\", \"f00\")"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjetTxt"
+                                  },
+                                  "parameters": [
+                                    "ItemIcon",
+                                    "Name",
+                                    "=",
+                                    "\"RitualDagger\""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "BBText::SetBBText"
+                                  },
+                                  "parameters": [
+                                    "ItemDescription",
+                                    "+",
+                                    "\"Maximum HP increased by \" + BBTextHelper::BoldColored(ToString(roundTo(Inventory::Count(VariableString(Items.Player), \"RitualDagger\") * Variable(ItemEffects.RitualDagger.MaxHP), 1)), \"f00\") + NewLine()"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "BBText::SetBBText"
+                                  },
+                                  "parameters": [
+                                    "ItemDescription",
+                                    "+",
+                                    "\"On kill restores \" + BBTextHelper::BoldColored(ToString(roundTo(Inventory::Count(VariableString(Items.Player), \"RitualDagger\") * Variable(ItemEffects.RitualDagger.Heal), 1)), \"f00\") + \" HP\""
                                   ]
                                 }
                               ]
@@ -11954,7 +12587,6 @@
                   "colorG": 176,
                   "colorR": 74,
                   "creationTime": 0,
-                  "folded": true,
                   "name": "Character UI",
                   "source": "",
                   "type": "BuiltinCommonInstructions::Group",
@@ -12119,6 +12751,7 @@
                   "colorG": 176,
                   "colorR": 74,
                   "creationTime": 0,
+                  "folded": true,
                   "name": "Effects",
                   "source": "",
                   "type": "BuiltinCommonInstructions::Group",
@@ -12434,6 +13067,7 @@
                   "colorG": 255,
                   "colorR": 0,
                   "creationTime": 0,
+                  "folded": true,
                   "name": "ROOM LOGIC",
                   "source": "",
                   "type": "BuiltinCommonInstructions::Group",
@@ -15162,7 +15796,6 @@
                       "colorG": 176,
                       "colorR": 74,
                       "creationTime": 0,
-                      "folded": true,
                       "name": "DebugText",
                       "source": "",
                       "type": "BuiltinCommonInstructions::Group",
@@ -15312,6 +15945,7 @@
                           ]
                         },
                         {
+                          "disabled": true,
                           "type": "BuiltinCommonInstructions::ForEach",
                           "object": "EnemySpawnPoint",
                           "conditions": [],
@@ -15329,6 +15963,7 @@
                           ]
                         },
                         {
+                          "disabled": true,
                           "type": "BuiltinCommonInstructions::ForEach",
                           "object": "Enemies",
                           "conditions": [],
@@ -15523,7 +16158,7 @@
           "followBaseLayerCamera": false,
           "isLightingLayer": false,
           "name": "PauseUI",
-          "visibility": true,
+          "visibility": false,
           "cameras": [],
           "effects": []
         },
