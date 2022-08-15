@@ -17,7 +17,7 @@
     "sizeOnStartupMode": "",
     "templateSlug": "",
     "useExternalSourceFiles": false,
-    "version": "1.0.2",
+    "version": "1.0.3",
     "name": "Armed Companions",
     "description": "Controls:\n\nMove: WASD of Arrows / Or u can use Left stick on gamepad\n\nPause: Escape",
     "author": "vanawy.dev",
@@ -80,7 +80,8 @@
     ],
     "playableDevices": [
       "keyboard",
-      "gamepad"
+      "gamepad",
+      "mobile"
     ],
     "extensionProperties": [
       {
@@ -1728,7 +1729,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": true,
-        "zoomFactor": 0.9899999999999619,
+        "zoomFactor": 1.8899999999999595,
         "windowMask": true
       },
       "objectsGroups": [
@@ -8394,7 +8395,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "LOADING CONFIG",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -8449,6 +8449,67 @@
                 }
               ],
               "parameters": []
+            },
+            {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "disabled": true,
+              "folded": true,
+              "name": "Load settings",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "disabled": true,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "LireFichierExp"
+                      },
+                      "parameters": [
+                        "\"Settings\"",
+                        "\"Volume\"",
+                        "",
+                        "VolumeSettings"
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "VarScene"
+                          },
+                          "parameters": [
+                            "VolumeSettings",
+                            "!=",
+                            "0"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarGlobal"
+                          },
+                          "parameters": [
+                            "SoundVolume",
+                            "=",
+                            "Variable(VolumeSettings)"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": []
             }
           ],
           "parameters": []
@@ -8458,6 +8519,7 @@
           "colorG": 16,
           "colorR": 189,
           "creationTime": 0,
+          "folded": true,
           "name": "Camera",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -8767,6 +8829,33 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "disabled": true,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "SceneVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "IsSoundSettingsChanged",
+                        "True"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "EcrireFichierExp"
+                      },
+                      "parameters": [
+                        "\"Settings\"",
+                        "\"Volume\"",
+                        "GlobalVariable(SoundVolume)"
+                      ]
+                    }
+                  ]
                 }
               ],
               "parameters": []
@@ -8776,6 +8865,7 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
+              "folded": true,
               "name": "Music",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
@@ -8965,7 +9055,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Controls",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -8975,7 +9064,6 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
-              "disabled": true,
               "name": "Touch",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
@@ -9123,6 +9211,7 @@
           "colorG": 211,
           "colorR": 126,
           "creationTime": 0,
+          "folded": true,
           "name": "Gameplay",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -9218,6 +9307,7 @@
                   "colorG": 176,
                   "colorR": 74,
                   "creationTime": 0,
+                  "folded": true,
                   "name": "Collision Detection",
                   "source": "",
                   "type": "BuiltinCommonInstructions::Group",
@@ -11225,6 +11315,37 @@
                                 "NewItemIconPosition.Y",
                                 "=",
                                 "ItemIcon.Y()"
+                              ]
+                            }
+                          ],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Comment",
+                              "color": {
+                                "b": 109,
+                                "g": 230,
+                                "r": 255,
+                                "textB": 0,
+                                "textG": 0,
+                                "textR": 0
+                              },
+                              "comment": "Clear inventory\n",
+                              "comment2": ""
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "Inventory::UnserializeFromVariable"
+                                  },
+                                  "parameters": [
+                                    "",
+                                    "VariableString(Items.Player)",
+                                    "EmptyInventory"
+                                  ]
+                                }
                               ]
                             }
                           ]
@@ -14926,6 +15047,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "DeathScreen",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -15273,6 +15395,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Buttons",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -15749,6 +15872,7 @@
           "colorG": 117,
           "colorR": 65,
           "creationTime": 0,
+          "folded": true,
           "name": "DEBUG",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
