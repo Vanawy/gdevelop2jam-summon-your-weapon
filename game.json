@@ -4248,7 +4248,7 @@
                   "timeBetweenFrames": 0.10000000149011612,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets\\crawler.png",
                       "points": [],
                       "originPoint": {
@@ -4262,7 +4262,26 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 14
+                          },
+                          {
+                            "x": 4,
+                            "y": 14
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -4277,7 +4296,7 @@
                   "timeBetweenFrames": 0.10000000149011612,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets\\crawler2.png",
                       "points": [],
                       "originPoint": {
@@ -4291,10 +4310,29 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 14
+                          },
+                          {
+                            "x": 4,
+                            "y": 14
+                          }
+                        ]
+                      ]
                     },
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets\\crawler.png",
                       "points": [],
                       "originPoint": {
@@ -4308,7 +4346,26 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 14
+                          },
+                          {
+                            "x": 4,
+                            "y": 14
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -4323,7 +4380,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets\\crawler-death1.png",
                       "points": [],
                       "originPoint": {
@@ -4337,10 +4394,29 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 14
+                          },
+                          {
+                            "x": 4,
+                            "y": 14
+                          }
+                        ]
+                      ]
                     },
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets\\crawler-death2.png",
                       "points": [],
                       "originPoint": {
@@ -4354,10 +4430,29 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 14
+                          },
+                          {
+                            "x": 4,
+                            "y": 14
+                          }
+                        ]
+                      ]
                     },
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets\\crawler-death3.png",
                       "points": [],
                       "originPoint": {
@@ -4371,10 +4466,29 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 14
+                          },
+                          {
+                            "x": 4,
+                            "y": 14
+                          }
+                        ]
+                      ]
                     },
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets\\crawler-death4.png",
                       "points": [],
                       "originPoint": {
@@ -4388,10 +4502,29 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 14
+                          },
+                          {
+                            "x": 4,
+                            "y": 14
+                          }
+                        ]
+                      ]
                     },
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets\\crawler-death5.png",
                       "points": [],
                       "originPoint": {
@@ -4405,7 +4538,26 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 4,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 4
+                          },
+                          {
+                            "x": 12,
+                            "y": 14
+                          },
+                          {
+                            "x": 4,
+                            "y": 14
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
